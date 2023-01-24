@@ -1,0 +1,78 @@
+<div class="container-fluid page">
+    <div class="d-flex page__box p-3 mt-2">{{titre}}</div>
+    <div class="page__content shadow p-3 position-relative">
+      <div class="page__content-data">
+        <mat-card>
+          <form [formGroup]="donForm" autocomplete="off" (ngSubmit)="formAction()">
+            <mat-grid-list cols="2" rowHeight="100px">
+  
+              <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                  <mat-label>Titre</mat-label>
+                  <input matInput placeholder="Titre" formControlName="titre" />
+                  <mat-error *ngIf="donForm.get('titre')?.hasError('required')">
+                    Entrer le Titre
+                  </mat-error>
+                </mat-form-field>
+              </mat-grid-tile>
+  
+              <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>Description</mat-label>
+                    <textarea matInput placeholder="Description" formControlName="description"></textarea>
+                    <mat-error *ngIf="donForm.get('description')?.hasError('required')">
+                      Entrer le Description
+                    </mat-error>
+                  </mat-form-field>
+              </mat-grid-tile>
+  
+              <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                  <mat-label>Adresse</mat-label>
+                  <input matInput placeholder="Adresse" formControlName="adresse"/>
+                  <mat-error *ngIf="donForm.get('adresse')?.hasError('required')">
+                    Entrer Adresse
+                  </mat-error>
+                </mat-form-field>
+              </mat-grid-tile>
+  
+              <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>Numero Téléphone</mat-label>
+                    <input matInput placeholder="Numero Téléphone" formControlName="phoneNumber" type="number"/>
+                    <mat-error *ngIf="donForm.get('phoneNumber')?.hasError('required')">
+                      Entrer Numéro de telephone
+                    </mat-error>
+                  </mat-form-field>
+              </mat-grid-tile>
+  
+              <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                  <mat-label>Email</mat-label>
+                  <input matInput placeholder="Email" formControlName="email"/>
+                  <mat-error *ngIf="donForm.get('email')?.hasError('required')">
+                    Entrer Email
+                  </mat-error>
+                  <mat-error *ngIf="donForm.get('email')?.hasError('email')">
+                    Email invalide
+                  </mat-error>
+                </mat-form-field>
+              </mat-grid-tile>
+  
+              <mat-grid-tile>
+
+              </mat-grid-tile>
+  
+              <mat-grid-tile>
+                <button mat-button color="primary" type="submit">SUBMIT</button>
+                <button mat-stroked-button color="warn" type="reset">ANNULER</button>
+              </mat-grid-tile>
+  
+            </mat-grid-list>
+          </form>
+            
+        </mat-card>
+      </div>
+    </div>
+  </div>
+  

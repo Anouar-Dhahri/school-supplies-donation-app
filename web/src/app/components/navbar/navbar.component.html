@@ -1,0 +1,33 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>Espace Organisme de bienfaisance </span>
+  <button mat-button class="example-icon" aria-label="Example icon-button with menu icon" routerLink="/admin/users">
+    Utilisateurs
+  </button>
+  <button mat-button class="example-icon" aria-label="Example icon-button with menu icon" routerLink="/admin/requests">
+    Dons Scolaire
+  </button>
+  <span class="example-spacer"></span>
+  <button
+    mat-button
+    [matMenuTriggerFor]="menu"
+    class="user mt-2 d-flex align-items-center"
+  >
+  <img src="./../../../assets/user.png" alt="" class="user-image mr-1 p-2" />
+
+  {{user.nom+ " "+ user.prenom}}
+  <mat-icon class="user-image-icon ml-1">keyboard_arrow_down</mat-icon>
+</button>
+<mat-menu #menu="matMenu" >
+  <button mat-menu-item routerLink="/admin/profile">
+    <mat-icon>person_outline</mat-icon>
+    Profile
+  </button>
+  <button mat-menu-item (click)="logout()">
+    <mat-icon>exit_to_app</mat-icon>
+    Logout
+  </button>
+</mat-menu>
+</mat-toolbar>

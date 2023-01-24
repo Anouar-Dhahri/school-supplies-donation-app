@@ -1,0 +1,66 @@
+<div class="container-fluid page">
+    <div class="d-flex page__box p-3 mt-2">{{titre}}</div>
+    <div class="page__content shadow p-3 position-relative">
+      <div class="page__content-data">
+        <mat-card>
+          <form [formGroup]="profileForm" autocomplete="off" (ngSubmit)="submit()">
+            <mat-grid-list cols="2" rowHeight="100px">
+              <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                  <mat-label>Nom</mat-label>
+                  <input matInput placeholder="Nom" formControlName="nom" />
+                  <mat-error *ngIf="profileForm.get('nom')?.hasError('required')">
+                    Entrer votre nom 
+                  </mat-error>
+                </mat-form-field>
+              </mat-grid-tile>
+  
+              <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                  <mat-label>Prénom</mat-label>
+                  <input matInput placeholder="Prénom" formControlName="prenom" />
+                  <mat-error *ngIf="profileForm.get('prenom')?.hasError('required')">
+                    Entrer votre prénom
+                  </mat-error>
+                </mat-form-field>
+              </mat-grid-tile>
+  
+              <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                  <mat-label>Email</mat-label>
+                  <input matInput placeholder="Email address" formControlName="email" />
+                  <mat-error *ngIf="profileForm.get('email')?.hasError('required')">
+                    Entrer votre Email
+                  </mat-error>
+                  <mat-error *ngIf="profileForm.get('email')?.hasError('email')">
+                    Email invalide
+                  </mat-error>
+                </mat-form-field>
+              </mat-grid-tile>
+  
+              <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                  <mat-label>Password</mat-label>
+                  <input matInput [type]="hide ? 'password' : 'text'" placeholder="Password" formControlName="password" />
+                  <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  </button>
+                  <mat-error *ngIf="profileForm.get('password')?.hasError('required')">
+                    Entrer votre mot de passe
+                  </mat-error>
+                </mat-form-field>
+              </mat-grid-tile>
+  
+              <mat-grid-tile class="action">
+                <button mat-button color="primary" type="submit">SUBMIT</button>
+                <button mat-stroked-button color="warn" type="reset">ANNULER</button>
+              </mat-grid-tile>
+  
+            </mat-grid-list>
+          </form>
+            
+        </mat-card>
+      </div>
+    </div>
+  </div>
+  
